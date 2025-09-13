@@ -28,8 +28,8 @@ var game_ready = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if game_ready:
-		get_tree().create_timer(5).timeout
-		get_tree().change_scene_to_file("res://start_menu.tscn")	
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://scenes/GameScene.tscn")	
 	# PLAYER ONE ACTIONS
 	if Input.is_action_just_pressed("kb_space"):
 		players[PLAYER.ONE] = 1
