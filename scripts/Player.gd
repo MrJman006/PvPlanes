@@ -83,3 +83,20 @@ func handle_movement(delta: float) -> void:
 	
 	# Apply movement
 	position += velocity * delta
+	
+	handle_screen_wrap()
+
+func handle_screen_wrap() -> void:
+	var screen_size = get_viewport().get_visible_rect().size
+
+	var sprite_bounding_box = get_node("SpriteBoundingBox").get_shape().size
+	
+	if position.x - sprite_bounding_box.x >= screen_size.x:
+		position.x = 0
+	elif position.x <= -sprite_bounding_box.x:
+		position.x = screen_size.x
+	
+	if position.y - sprite_bounding_box.y >= screen_size.y:
+		position.y = 0
+	elif position.y <= -sprite_bounding_box.y:
+		position.y = screen_size.y
