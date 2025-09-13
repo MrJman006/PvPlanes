@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://ch4ror07qtcih"]
 
-[ext_resource type="Script" uid="uid://djflllwa6vghn" path="res://scenes/TestGameScene.gd" id="1_xy3my"]
+[ext_resource type="Script" uid="uid://djflllwa6vghn" path="res://scripts/GameScene.gd" id="1_xy3my"]
 [ext_resource type="Texture2D" uid="uid://bfojvmhw5b7jw" path="res://icon.svg" id="2_cxv17"]
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_xy3my")
 
 [node name="TestBulletPlayer" type="Node2D" parent="."]
 position = Vector2(500, 250)
-script = ExtResource("1_xy3my")
 
 [node name="Sprite2D" type="Sprite2D" parent="TestBulletPlayer"]
 texture = ExtResource("2_cxv17")

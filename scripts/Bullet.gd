@@ -15,13 +15,12 @@ var _velocity: Vector2 = Vector2.ZERO
 var _lifetime: float = 0.0
 var _shooter_id: int = -1
 
-func fire(direction: Vector2, shooter_id: int = -1, speed_override: float = -1.0):
-	direction = direction.normalized()
+func fire(position: Vector2, rotation: float, shooter_id: int = -1, speed_override: float = -1.0):
+	global_position = position
+	var direction = Vector2.UP.rotated(rotation)
 	_velocity = direction * (speed if speed_override == -1 else speed_override)
-	rotation = direction.angle()
 	_lifetime = 0.0
 	_shooter_id = shooter_id
-	show()
 
 func _ready():
 	connect("body_entered", Callable(self, "_on_body_entered"))
