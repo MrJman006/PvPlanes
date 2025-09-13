@@ -1,9 +1,15 @@
 extends Node2D
 
 var player_scene: PackedScene = preload("res://scenes/Player.tscn")
-
+var players : Array
 func _ready() -> void:
-	var player_1 = player_scene.instantiate()
-	player_1.global_position = Vector2(500, 250)
-	get_tree().current_scene.add_child(player_1)
-	player_1.show()
+	players = Manager.players
+	add_players(players)
+
+func add_players(players: Array) -> void:
+	for i in range(players.size()):
+		if players[i] == 1:
+			var new_player = player_scene.instantiate()
+			var random_pos = Vector2(randi_range(0,800),randi_range(0,800))
+			new_player.global_position = random_pos
+			add_child(new_player)

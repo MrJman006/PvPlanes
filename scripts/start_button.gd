@@ -1,7 +1,10 @@
 extends TextureButton
 
+
+
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/players_menu.tscn")
+	pass	
+	
 
 func _on_mouse_entered() -> void:
 	release_focus()
