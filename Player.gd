@@ -30,10 +30,12 @@ var fire_rate_modifier: float = 1.0
 # Gun cooldown Timer
 @onready var gun_cooldown_timer: Timer = Timer.new()
 
+# Ready function
 func _ready() -> void:
 	gun_cooldown_timer.one_shot = true
 	add_child(gun_cooldown_timer)
 
+# Process physics
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_weapon_actions(delta)
@@ -47,12 +49,16 @@ func handle_weapon_actions(delta: float) -> void:
 		bullet.show()
 		gun_cooldown_timer.start(fire_rate * fire_rate_modifier)
 
+# Add shield to the player
 func add_shield(shield: int) -> void:
 	current_shield += shield
 
+# Add health to the player, no more than max
 func add_health(health: int) -> void:
 	current_health = min(current_health + health, max_health)
 	
+# Applies damage to the player,
+# first to the shield, then to the health
 func apply_damage(damage: int) -> void:
 	if damage <= 0:
 		return
@@ -63,6 +69,8 @@ func apply_damage(damage: int) -> void:
 
 	current_health = max(current_health - damage, 0)
 
+# Handles inputs that affect movement
+# and finalizes the position of the player 
 func handle_movement(delta: float) -> void:
 	# Movement input: rotation
 	if Input.is_action_pressed("ui_left", device_id): # A
@@ -75,4 +83,3 @@ func handle_movement(delta: float) -> void:
 	
 	# Apply movement
 	position += velocity * delta
-	#print("Position: ", position, " Velocity: ", velocity, " Heading: ", rotation_degrees)
