@@ -17,7 +17,7 @@ var _shooter_id: int = -1
 
 func fire(position: Vector2, rotation: float, shooter_id: int = -1, speed_override: float = -1.0):
 	global_position = position
-	var direction = Vector2.UP.rotated(rotation)
+	var direction = Vector2.RIGHT.rotated(rotation)
 	_velocity = direction * (speed if speed_override == -1 else speed_override)
 	_lifetime = 0.0
 	_shooter_id = shooter_id

@@ -1,6 +1,6 @@
 extends Node2D
 
-var player_scene: PackedScene = preload("res://Player.tscn")
+var player_scene: PackedScene = preload("res://scenes/Player.tscn")
 
 func _ready() -> void:
 	var player_1 = player_scene.instantiate()
