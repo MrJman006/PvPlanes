@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="RangeUpgradeStrategy" load_steps=3 format=3 uid="uid://bxjjfh8wy2c5i"]
 
 [ext_resource type="Script" uid="uid://bkxsminoxd8la" path="res://scripts/UpgradesStrategies/RangeUpgradeStrategy.gd" id="1_c6cuu"]
-[ext_resource type="Texture2D" uid="uid://cdspsl6uifbmw" path="res://assests/Generic_Upgrade.png" id="2_kvy1c"]
+[ext_resource type="Texture2D" uid="uid://cdspsl6uifbmw" path="res://assets/Generic_Upgrade.png" id="2_kvy1c"]
 
 [resource]
 script = ExtResource("1_c6cuu")
 range_increase = 5
 texture = ExtResource("2_kvy1c")
-upgrade_text = "Range Upgrade"
+upgrade_text = "Range"
 isPlayerUpgrade = false
 metadata/_custom_type_script = "uid://bkxsminoxd8la"

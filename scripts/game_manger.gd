@@ -8,7 +8,6 @@ var upgrades : Array[BaseUpgradeStrategy] = [
 	preload("res://resources/strategies/Damage.tres"),
 	preload("res://resources/strategies/FireRate.tres"),
 	preload("res://resources/strategies/Health.tres"),
-	preload("res://resources/strategies/Range.tres"),
 	preload("res://resources/strategies/Shield.tres")
 	]
 
