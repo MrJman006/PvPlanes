@@ -7,6 +7,7 @@
 radius = 30.9919
 
 [node name="Bullet" type="Area2D"]
+scale = Vector2(0.25, 0.25)
 script = ExtResource("1_p1sfj")
 speed = 1000.0
 max_lifetime = 1.0

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://qxu470a6nf44"]
+
+[ext_resource type="Script" uid="uid://bod6lp5yugy5n" path="res://Missile.gd" id="1_ohnc3"]
+[ext_resource type="Texture2D" uid="uid://c6xc1sskqvruq" path="res://imgs/menu/RedButton.png" id="2_1ifrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohnc3"]
+size = Vector2(24, 4)
+
+[node name="Missile" type="Area2D"]
+script = ExtResource("1_ohnc3")
+speed = 1000.0
+max_lifetime = 1.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.03)
+texture = ExtResource("2_1ifrg")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ohnc3")
