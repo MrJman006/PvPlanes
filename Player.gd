@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 # Maximum total velocity of the player (units/s)
-@export var max_velocity := 2
+@export var max_velocity := 96
 
 # Current velocity (units/s)
 # var velocity: Vector2
@@ -33,5 +33,5 @@ func handle_movement(delta: float) -> void:
 	var velocity = Vector2.from_angle(rotation) * max_velocity
 	
 	# Apply movement
-	position += velocity
+	position += velocity * delta
 	#print("Position: ", position, " Velocity: ", velocity, " Heading: ", rotation_degrees)
