@@ -1,4 +1,6 @@
-extends Node
+extends Node2D
+const GAME_SCENE = preload("res://scenes/GameScene.tscn")
+signal game_ready(players : Array)
 
 enum PLAYER
 {
@@ -9,7 +11,7 @@ enum PLAYER
 }
 var players = [0,0,0,0]
 var ready_players = [0,0,0,0]
-var game_ready = false
+var all_players_ready = false
 
 @onready var player_one_button: Sprite2D = $PlayerOne/PlayerOneButton
 @onready var player_one_label: Label = $PlayerOne/PlayerOneLabel
@@ -27,9 +29,10 @@ var game_ready = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if game_ready:
-		await get_tree().create_timer(1).timeout
-		get_tree().change_scene_to_file("res://scenes/GameScene.tscn")	
+	if all_players_ready:
+		all_players_ready = false
+		Manager.prepare_game_scene(players)
+		
 	# PLAYER ONE ACTIONS
 	if Input.is_action_just_pressed("kb_space"):
 		players[PLAYER.ONE] = 1
@@ -47,7 +50,7 @@ func _process(delta: float) -> void:
 		ready_players[PLAYER.ONE] = 1
 		check_one.visible = true
 		if players == ready_players:
-			game_ready = true
+			all_players_ready = true
 		
 	# PLAYER TWO ACTIONS
 	if Input.is_action_just_pressed("controller_one_confirm"):
@@ -66,7 +69,7 @@ func _process(delta: float) -> void:
 		ready_players[PLAYER.TWO] = 1
 		check_two.visible = true
 		if players == ready_players:
-			game_ready = true
+			all_players_ready = true
 	# PLAYER THREE ACTIONS
 	if Input.is_action_just_pressed("controller_two_confirm", ):
 		players[PLAYER.THREE] = 1
@@ -84,7 +87,7 @@ func _process(delta: float) -> void:
 		ready_players[PLAYER.THREE] = 1
 		check_three.visible = true
 		if players == ready_players:
-			game_ready = true
+			all_players_ready = true
 	# PLAYER FOUR ACTIONS
 	if Input.is_action_just_pressed("controller_three_confirm"): 
 		players[PLAYER.FOUR] = 1
@@ -102,4 +105,4 @@ func _process(delta: float) -> void:
 		ready_players[PLAYER.FOUR] = 1
 		check_four.visible = true	
 		if players == ready_players:
-			game_ready = true
+			all_players_ready = true

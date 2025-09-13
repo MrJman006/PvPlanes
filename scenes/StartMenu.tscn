@@ -15,7 +15,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StartButton:scale")
+tracks/0/path = NodePath("StartMenu/StartButton:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +27,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("QuitButton:scale")
+tracks/1/path = NodePath("StartMenu/QuitButton:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +39,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PvPlanes:rotation")
+tracks/2/path = NodePath("StartMenu/PvPlanes:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -56,7 +56,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StartButton:scale")
+tracks/0/path = NodePath("StartMenu/StartButton:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -68,7 +68,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("QuitButton:scale")
+tracks/1/path = NodePath("StartMenu/QuitButton:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,7 +80,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PvPlanes:rotation")
+tracks/2/path = NodePath("StartMenu/PvPlanes:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -96,14 +96,15 @@ _data = {
 &"pulsate": SubResource("Animation_vpdu5")
 }
 
-[node name="StartMenu" type="Node"]
+[node name="StartMenu" type="Node2D"]
 script = ExtResource("1_73a2t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_ctwoq")
 }
-autoplay = "pulsate"
+autoplay = "RESET"
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1920.0
@@ -116,10 +117,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -399.0
-offset_right = 626.0
-offset_bottom = 3.0
+offset_left = 448.0
+offset_top = 141.0
+offset_right = 1586.0
+offset_bottom = 543.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(569, 201)
