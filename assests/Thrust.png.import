@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsvmu16i7mcbw"
-path="res://.godot/imported/Thrust.png-cd2713b473ac67e3c4041210535b7dac.ctex"
+path="res://.godot/imported/Thrust.png-809bb37dcbc37d9811f091cd1711277a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Thrust.png"
-dest_files=["res://.godot/imported/Thrust.png-cd2713b473ac67e3c4041210535b7dac.ctex"]
+source_file="res://Assests/Thrust.png"
+dest_files=["res://.godot/imported/Thrust.png-809bb37dcbc37d9811f091cd1711277a.ctex"]
 
 [params]
 

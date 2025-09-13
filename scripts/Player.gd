@@ -8,7 +8,7 @@ var bullet_upgrades : Array[BaseUpgradeStrategy] = []
 var player_upgrades : Array[BaseUpgradeStrategy] = []
 
 # What device id to listen to (default 0 = keyboard)
-@export var device_id: int = 1
+@export var device_id: int = 0
 
 # Maximum total velocity of the player (units/s)
 @export var max_velocity: float = 128.0

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://du5tsryu3pip2"
-path="res://.godot/imported/Fire_Rate_Upgrade.png-29e4c07c040304730e323d12fd34bc3d.ctex"
+path="res://.godot/imported/Fire_Rate_Upgrade.png-95ec1759c7cb1babbcc7968b2bb87322.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Fire_Rate_Upgrade.png"
-dest_files=["res://.godot/imported/Fire_Rate_Upgrade.png-29e4c07c040304730e323d12fd34bc3d.ctex"]
+source_file="res://Assests/Fire_Rate_Upgrade.png"
+dest_files=["res://.godot/imported/Fire_Rate_Upgrade.png-95ec1759c7cb1babbcc7968b2bb87322.ctex"]
 
 [params]
 
