@@ -1,13 +1,14 @@
 extends CharacterBody2D
 class_name Player
 
+# Bullet scene
 var bullet_scene: PackedScene = preload("res://scenes/Bullet.tscn")
 
 var bullet_upgrades : Array[BaseUpgradeStrategy] = []
 var player_upgrades : Array[BaseUpgradeStrategy] = []
 
 # What device id to listen to (default 0 = keyboard)
-@export var device_id: int = 0
+@export var device_id: int = 1
 
 # Maximum total velocity of the player (units/s)
 @export var max_velocity: float = 128.0
@@ -33,6 +34,24 @@ var fire_rate_modifier: float = 1.0
 # Gun cooldown Timer
 @onready var gun_cooldown_timer: Timer = Timer.new()
 
+# Deadzone for joystick movement
+const DEADZONE = 0.2
+
+# Whether the action is pressed or not
+var action_states := {
+	"left": false,
+	"right": false,
+	"fire": false,
+}
+
+# Maps the actions to certain buttons
+# Joysticks are handled separately
+const ACTION_TO_BUTTON := {
+	"left": [KEY_LEFT],
+	"right": [KEY_RIGHT],
+	"fire": [KEY_SPACE, KEY_ENTER, JOY_BUTTON_B],
+}
+
 # Ready function
 func _ready() -> void:
 	gun_cooldown_timer.one_shot = true
@@ -49,9 +68,37 @@ func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_weapon_actions(delta)
 
+# Gets the keycode of a joypad button or key agnostically as an int
+func get_keycode(event: InputEvent) -> int:
+	if event is InputEventKey:
+		return event.keycode
+	if event is InputEventJoypadButton:
+		return event.button_index
+	return -1
+
+func _input(event):
+	# Check only if the event is from the device we want
+	if event.device == device_id:
+		if event is InputEventKey or event is InputEventJoypadButton:
+			for action in action_states.keys():
+				var found: bool = false
+				for keycode in ACTION_TO_BUTTON[action]:
+					if get_keycode(event) == int(keycode):
+						found = true
+						break
+				if found:
+					action_states[action] = event.pressed
+		# Handle joystick axes
+		elif event is InputEventJoypadMotion:
+			if event.axis == JOY_AXIS_LEFT_X:
+				# Move left
+				action_states["left"] = event.axis_value < -DEADZONE
+				# Move right
+				action_states["right"] = event.axis_value > DEADZONE
+
 func handle_weapon_actions(delta: float) -> void:
 	# Fire Input
-	if Input.is_action_pressed("ui_primary_fire", device_id) and gun_cooldown_timer.is_stopped(): # Enter / Space
+	if action_states["fire"] and gun_cooldown_timer.is_stopped():
 		var bullet = bullet_scene.instantiate()
 		get_tree().current_scene.add_child(bullet)
 		
@@ -85,10 +132,9 @@ func apply_damage(damage: int) -> void:
 # Handles inputs that affect movement
 # and finalizes the position of the player 
 func handle_movement(delta: float) -> void:
-	# Movement input: rotation
-	if Input.is_action_pressed("ui_left", device_id): # A
+	if action_states["left"]:
 		rotation_degrees -= max_turn_speed * delta
-	if Input.is_action_pressed("ui_right", device_id): # D
+	if action_states["right"]:
 		rotation_degrees += max_turn_speed * delta
 	
 	# Calculate new velocity
