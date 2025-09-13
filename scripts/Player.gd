@@ -3,6 +3,9 @@ class_name Player
 
 var bullet_scene: PackedScene = preload("res://scenes/Bullet.tscn")
 
+var bullet_upgrades : Array[BaseUpgradeStrategy] = []
+var player_upgrades : Array[BaseUpgradeStrategy] = []
+
 # What device id to listen to (default 0 = keyboard)
 @export var device_id: int = 0
 
@@ -35,6 +38,12 @@ func _ready() -> void:
 	gun_cooldown_timer.one_shot = true
 	add_child(gun_cooldown_timer)
 
+# applies player upgrades to the player
+func _process(delta: float) -> void:
+	for upgrade in player_upgrades:
+		upgrade.apply_upgrade_to_player(self)
+	player_upgrades.clear()
+
 # Process physics
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
@@ -45,6 +54,10 @@ func handle_weapon_actions(delta: float) -> void:
 	if Input.is_action_pressed("ui_primary_fire", device_id) and gun_cooldown_timer.is_stopped(): # Enter / Space
 		var bullet = bullet_scene.instantiate()
 		get_tree().current_scene.add_child(bullet)
+		
+		for upgrade in bullet_upgrades:
+			upgrade.apply_upgrade_to_projectile(bullet)
+		
 		bullet.fire(global_position, rotation, get_instance_id())
 		bullet.show()
 		gun_cooldown_timer.start(fire_rate * fire_rate_modifier)

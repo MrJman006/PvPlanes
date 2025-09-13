@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://qfxptdf5pkh0"]
 
 [ext_resource type="Script" uid="uid://bgr6e33qf1g5e" path="res://scripts/Bullet.gd" id="1_p1sfj"]
-[ext_resource type="Texture2D" uid="uid://c6xc1sskqvruq" path="res://imgs/menu/RedButton.png" id="2_p1sfj"]
+[ext_resource type="Texture2D" uid="uid://dx85s7absbrtj" path="res://assests/Porjectile.png" id="2_p1sfj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kdm4f"]
 radius = 30.9919
@@ -12,8 +12,11 @@ speed = 1000.0
 max_lifetime = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
+rotation = 1.5708
+scale = Vector2(3.10937, 3)
 texture = ExtResource("2_p1sfj")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(9, 0)
+scale = Vector2(0.35, 0.35)
 shape = SubResource("CircleShape2D_kdm4f")
