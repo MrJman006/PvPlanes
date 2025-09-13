@@ -7,11 +7,10 @@ var selectedButton: TextureButton
 
 func _ready() -> void:
 	selectedButton = start_button
-	selectedButton.grab_focus()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("device_0_down") or Input.is_action_just_pressed("device_0_up"):
+	if Input.is_action_just_pressed("controller_one_down") or Input.is_action_just_pressed("controller_one_up"):
 		if selectedButton == quit_button:
 			selectedButton.release_focus()
 			selectedButton = start_button
