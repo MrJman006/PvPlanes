@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1e7ubdbjbrj4"
-path="res://.godot/imported/Shield_Upgrade.png-7a29f5295d6390dcb64a3e4f5e056d5a.ctex"
+path="res://.godot/imported/Shield_Upgrade.png-af069ee96e6950a35293e6682e3e9feb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Shield_Upgrade.png"
-dest_files=["res://.godot/imported/Shield_Upgrade.png-7a29f5295d6390dcb64a3e4f5e056d5a.ctex"]
+source_file="res://Assests/Shield_Upgrade.png"
+dest_files=["res://.godot/imported/Shield_Upgrade.png-af069ee96e6950a35293e6682e3e9feb.ctex"]
 
 [params]
 

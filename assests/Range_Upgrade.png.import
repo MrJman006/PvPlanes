@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://nugip6rnj6km"
-path="res://.godot/imported/Range_Upgrade.png-bf7a39978cf7ff03021962159760b762.ctex"
+path="res://.godot/imported/Range_Upgrade.png-f55985682d4a10e1d14374324449eab1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/Range_Upgrade.png"
-dest_files=["res://.godot/imported/Range_Upgrade.png-bf7a39978cf7ff03021962159760b762.ctex"]
+source_file="res://Assests/Range_Upgrade.png"
+dest_files=["res://.godot/imported/Range_Upgrade.png-f55985682d4a10e1d14374324449eab1.ctex"]
 
 [params]
 

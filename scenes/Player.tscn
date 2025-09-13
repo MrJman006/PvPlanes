@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b8m50qfvlfcv0"]
 
 [ext_resource type="Script" uid="uid://cbkaybjpkmvkv" path="res://scripts/Player.gd" id="1_3li8b"]
-[ext_resource type="Texture2D" uid="uid://bukwiqp4wbuta" path="res://assests/Plane.png" id="2_3li8b"]
+[ext_resource type="Texture2D" uid="uid://bukwiqp4wbuta" path="res://Assests/Plane.png" id="2_3li8b"]
 [ext_resource type="Texture2D" uid="uid://d03koajfsxkc" path="res://imgs/Thrust.png" id="3_qu4a1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3li8b"]
