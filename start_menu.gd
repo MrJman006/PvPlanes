@@ -20,6 +20,6 @@ func _process(delta: float) -> void:
 			selectedButton = quit_button
 			selectedButton.grab_focus()
 	
-	if Input.is_action_just_pressed("device_0_confirm"):
+	if Input.is_action_just_pressed("controller_one_confirm"):
 		selectedButton.emit_signal("pressed")
 		
