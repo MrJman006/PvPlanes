@@ -4,17 +4,11 @@ class_name Player
 # Maximum total velocity of the player (units/s)
 @export var max_velocity := 96
 
-# Current velocity (units/s)
-# var velocity: Vector2
-
-# Current heading (deg)
-# var rotation_degrees: float
-
 # Maximum total turn speed (deg/s)
-@export var max_turn_speed := 60
+@export var max_turn_speed := 90
 
 # Maximum health
-@export var max_health := 10
+@export var max_health := 100
 
 # Current Health
 @export var current_health := max_health
@@ -30,7 +24,7 @@ func handle_movement(delta: float) -> void:
 		rotation_degrees += max_turn_speed * delta
 	
 	# Calculate new velocity
-	var velocity = Vector2.from_angle(rotation) * max_velocity
+	velocity = Vector2.from_angle(rotation) * max_velocity
 	
 	# Apply movement
 	position += velocity * delta
