@@ -1,0 +1,169 @@
+[gd_scene load_steps=10 format=3 uid="uid://xo8c7pwbtbu6"]
+
+[ext_resource type="Script" uid="uid://dcngc8o2gvopb" path="res://player_menu.gd" id="1_sdn3m"]
+[ext_resource type="Texture2D" uid="uid://bj3ikbgirhn87" path="res://imgs/menu/BlueBackground.png" id="1_xf8rw"]
+[ext_resource type="Texture2D" uid="uid://db3gkm6xdh6nn" path="res://imgs/menu/BlueButton.png" id="2_sdn3m"]
+[ext_resource type="Texture2D" uid="uid://cx0p5ywt00afr" path="res://imgs/menu/GreenButton.png" id="3_rwwts"]
+[ext_resource type="Texture2D" uid="uid://4w8j1e84lhct" path="res://imgs/menu/readyCheckBox.png" id="4_cgbcs"]
+[ext_resource type="Texture2D" uid="uid://drul3cvlb450w" path="res://imgs/menu/PurpleButton.png" id="4_lb1ib"]
+[ext_resource type="Texture2D" uid="uid://c6xc1sskqvruq" path="res://imgs/menu/RedButton.png" id="5_cgbcs"]
+[ext_resource type="Texture2D" uid="uid://thn31soxq8ky" path="res://imgs/menu/checkmark.png" id="5_xox0g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xox0g"]
+line_spacing = 0.0
+font_size = 60
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_sdn3m")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_xf8rw")
+
+[node name="PlayerOne" type="Node" parent="."]
+
+[node name="PlayerOneButton" type="Sprite2D" parent="PlayerOne"]
+position = Vector2(162, 834)
+texture = ExtResource("2_sdn3m")
+
+[node name="PlayerOneLabel" type="Label" parent="PlayerOne"]
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.021
+offset_left = 46.0
+offset_top = 915.0
+offset_right = 547.68
+offset_bottom = 1085.32
+text = "Player 1"
+label_settings = SubResource("LabelSettings_xox0g")
+
+[node name="CheckBoxOne" type="TextureRect" parent="PlayerOne"]
+visible = false
+offset_left = 48.0
+offset_top = 808.0
+offset_right = 480.0
+offset_bottom = 928.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_cgbcs")
+
+[node name="CheckOne" type="TextureRect" parent="PlayerOne"]
+visible = false
+offset_left = 62.0
+offset_top = 737.0
+offset_right = 219.0
+offset_bottom = 915.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_xox0g")
+
+[node name="PlayerTwo" type="Node" parent="."]
+
+[node name="PlayerTwoLabel" type="Label" parent="PlayerTwo"]
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.021
+offset_left = 527.0
+offset_top = 915.0
+offset_right = 1028.68
+offset_bottom = 1085.32
+text = "Player 2
+"
+label_settings = SubResource("LabelSettings_xox0g")
+
+[node name="PlayerTwoButton" type="Sprite2D" parent="PlayerTwo"]
+position = Vector2(647, 838)
+texture = ExtResource("4_lb1ib")
+
+[node name="CheckBoxTwo" type="TextureRect" parent="PlayerTwo"]
+visible = false
+offset_left = 481.0
+offset_top = 808.0
+offset_right = 913.0
+offset_bottom = 928.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_cgbcs")
+
+[node name="CheckTwo" type="TextureRect" parent="PlayerTwo"]
+visible = false
+offset_left = 495.0
+offset_top = 737.0
+offset_right = 652.0
+offset_bottom = 915.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_xox0g")
+
+[node name="PlayerThree" type="Node" parent="."]
+
+[node name="PlayerThreeLabel" type="Label" parent="PlayerThree"]
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.021
+offset_left = 1010.0
+offset_top = 914.0
+offset_right = 1511.68
+offset_bottom = 1084.32
+text = "Player 3
+"
+label_settings = SubResource("LabelSettings_xox0g")
+
+[node name="PlayerThreeButton" type="Sprite2D" parent="PlayerThree"]
+position = Vector2(1130, 832)
+texture = ExtResource("5_cgbcs")
+
+[node name="CheckBoxThree" type="TextureRect" parent="PlayerThree"]
+visible = false
+offset_left = 987.0
+offset_top = 800.0
+offset_right = 1419.0
+offset_bottom = 920.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_cgbcs")
+
+[node name="CheckThree" type="TextureRect" parent="PlayerThree"]
+visible = false
+offset_left = 1003.0
+offset_top = 721.0
+offset_right = 1160.0
+offset_bottom = 899.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_xox0g")
+
+[node name="PlayerFour" type="Node" parent="."]
+
+[node name="PlayerFourLabel" type="Label" parent="PlayerFour"]
+anchors_preset = -1
+anchor_right = 0.021
+anchor_bottom = 0.021
+offset_left = 1535.0
+offset_top = 922.0
+offset_right = 2036.68
+offset_bottom = 1092.32
+text = "Player 4
+"
+label_settings = SubResource("LabelSettings_xox0g")
+
+[node name="PlayerFourButton" type="Sprite2D" parent="PlayerFour"]
+position = Vector2(1646, 832)
+texture = ExtResource("3_rwwts")
+
+[node name="CheckBoxFour" type="TextureRect" parent="PlayerFour"]
+visible = false
+offset_left = 1529.0
+offset_top = 796.0
+offset_right = 1961.0
+offset_bottom = 916.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("4_cgbcs")
+
+[node name="CheckFour" type="TextureRect" parent="PlayerFour"]
+visible = false
+offset_left = 1541.0
+offset_top = 721.0
+offset_right = 1698.0
+offset_bottom = 899.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("5_xox0g")
+
+[node name="Node2D" type="Node2D" parent="."]
