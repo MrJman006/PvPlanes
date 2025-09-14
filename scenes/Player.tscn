@@ -30,6 +30,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_3li8b")
 
 [node name="Collider" type="CollisionPolygon2D" parent="."]
@@ -50,11 +51,11 @@ position = Vector2(-21.5, -6)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_tdg3f")
 animation = &"forward"
-frame_progress = 0.902782
+frame_progress = 0.899842
 
 [node name="RightThrusterSprite" type="AnimatedSprite2D" parent="SpriteBoundingBox"]
 position = Vector2(-21.5, 6)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_tdg3f")
 animation = &"forward"
-frame_progress = 0.442955
+frame_progress = 0.831486

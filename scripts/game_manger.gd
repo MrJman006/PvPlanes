@@ -8,7 +8,8 @@ var upgrades : Array[BaseUpgradeStrategy] = [
 	preload("res://resources/strategies/Damage.tres"),
 	preload("res://resources/strategies/FireRate.tres"),
 	preload("res://resources/strategies/Health.tres"),
-	preload("res://resources/strategies/Shield.tres")
+	preload("res://resources/strategies/Shield.tres"),
+	preload("res://resources/strategies/Range.tres")
 	]
 
 func _ready() -> void:
@@ -16,13 +17,13 @@ func _ready() -> void:
 	start_spawn_timer()
 
 func start_spawn_timer():
-	var wait_time = randf_range(10, 25)
+	var wait_time = randf_range(0, 5)
 	var timer = get_tree().create_timer(wait_time)
 	timer.timeout.connect(spawn_node)
 	
 func spawn_node() -> void:
 	if max_upgrade_count > current_upgrade_count:
-		var upgrade_type = randi_range(0,4)
+		var upgrade_type = randi_range(0,upgrades.size()-1)
 		var new_upgrade = upgrade_scene.instantiate()
 		new_upgrade.upgrade_strategy = upgrades[upgrade_type]
 	

@@ -11,7 +11,7 @@ var player_upgrades : Array[BaseUpgradeStrategy] = []
 @export var device_id: int = 0
 
 # Maximum total velocity of the player (units/s)
-@export var max_velocity: float = 128.0
+@export var max_velocity: float = 512
 
 # Maximum total turn speed (deg/s)
 @export var max_turn_speed: float = 90.0
@@ -56,6 +56,8 @@ const ACTION_TO_BUTTON := {
 func _ready() -> void:
 	gun_cooldown_timer.one_shot = true
 	add_child(gun_cooldown_timer)
+	$SpriteBoundingBox/LeftThrusterSprite.play("forward")
+	$SpriteBoundingBox/RightThrusterSprite.play("forward")
 
 # applies player upgrades to the player
 func _process(delta: float) -> void:
