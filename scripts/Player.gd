@@ -2,10 +2,14 @@ extends CharacterBody2D
 class_name Player
 
 # Bullet scene
-var bullet_scene: PackedScene = preload("res://scenes/Bullet.tscn")
+@onready var bullet_scene: PackedScene = preload("res://scenes/Bullet.tscn")
 
+# Containers
+var sound_players : Array[AudioStreamPlayer] = []
 var bullet_upgrades : Array[BaseUpgradeStrategy] = []
 var player_upgrades : Array[BaseUpgradeStrategy] = []
+
+@export var fire_sound : AudioStream
 
 # What device id to listen to (default 0 = keyboard)
 @export var device_id: int = 0
@@ -56,6 +60,14 @@ const ACTION_TO_BUTTON := {
 func _ready() -> void:
 	gun_cooldown_timer.one_shot = true
 	add_child(gun_cooldown_timer)
+	
+	#Setup Audio Players
+	for i in range(0, 10):
+		var sound_player = AudioStreamPlayer.new()
+		sound_players.append(sound_player)
+		add_child(sound_player)
+	
+	# Start Animations
 	$SpriteBoundingBox/LeftThrusterSprite.play("forward")
 	$SpriteBoundingBox/RightThrusterSprite.play("forward")
 
@@ -108,8 +120,19 @@ func handle_weapon_actions(delta: float) -> void:
 			upgrade.apply_upgrade_to_projectile(bullet)
 		
 		bullet.fire(global_position, rotation, get_instance_id())
+		play_sound_effect(fire_sound)
 		bullet.show()
 		gun_cooldown_timer.start(fire_rate * fire_rate_modifier)
+
+func play_sound_effect(stream: AudioStream):
+	for sound_player in sound_players:
+		if not sound_player.playing:
+			sound_player.stream = stream
+			sound_player.play()
+			return
+	sound_players[0].stop()
+	sound_players[0].stream = stream
+	sound_players[0].play()
 
 # Add shield to the player
 func add_shield(shield: int) -> void:
