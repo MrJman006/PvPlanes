@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://xo8c7pwbtbu6"]
 
-[ext_resource type="Script" path="res://scripts/player_menu.gd" id="1_sdn3m"]
+[ext_resource type="Script" uid="uid://dcngc8o2gvopb" path="res://scripts/player_menu.gd" id="1_sdn3m"]
 [ext_resource type="Texture2D" uid="uid://bj3ikbgirhn87" path="res://imgs/menu/BlueBackground.png" id="1_xf8rw"]
 [ext_resource type="Texture2D" uid="uid://db3gkm6xdh6nn" path="res://imgs/menu/BlueButton.png" id="2_sdn3m"]
 [ext_resource type="Texture2D" uid="uid://cx0p5ywt00afr" path="res://imgs/menu/GreenButton.png" id="3_rwwts"]
@@ -16,18 +16,18 @@ outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="PlayerMenu" type="Node2D"]
-script = ExtResource("1_vptqc")
+script = ExtResource("1_sdn3m")
 
 [node name="Background" type="TextureRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_230lr")
+texture = ExtResource("1_xf8rw")
 
 [node name="PlayerOne" type="Node2D" parent="."]
 
 [node name="PlayerOneButton" type="Sprite2D" parent="PlayerOne"]
 position = Vector2(162, 834)
-texture = ExtResource("3_4kw2x")
+texture = ExtResource("2_sdn3m")
 
 [node name="PlayerOneLabel" type="Label" parent="PlayerOne"]
 anchors_preset = -1
@@ -47,7 +47,7 @@ offset_top = 808.0
 offset_right = 480.0
 offset_bottom = 928.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_lo6sb")
+texture = ExtResource("4_cgbcs")
 
 [node name="CheckOne" type="TextureRect" parent="PlayerOne"]
 visible = false
@@ -56,7 +56,7 @@ offset_top = 737.0
 offset_right = 219.0
 offset_bottom = 915.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_bajgy")
+texture = ExtResource("5_xox0g")
 
 [node name="PlayerTwo" type="Node2D" parent="."]
 
@@ -74,7 +74,7 @@ label_settings = SubResource("LabelSettings_xox0g")
 
 [node name="PlayerTwoButton" type="Sprite2D" parent="PlayerTwo"]
 position = Vector2(647, 838)
-texture = ExtResource("6_eh0wl")
+texture = ExtResource("4_lb1ib")
 
 [node name="CheckBoxTwo" type="TextureRect" parent="PlayerTwo"]
 visible = false
@@ -83,7 +83,7 @@ offset_top = 808.0
 offset_right = 913.0
 offset_bottom = 928.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_lo6sb")
+texture = ExtResource("4_cgbcs")
 
 [node name="CheckTwo" type="TextureRect" parent="PlayerTwo"]
 visible = false
@@ -92,7 +92,7 @@ offset_top = 737.0
 offset_right = 652.0
 offset_bottom = 915.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_bajgy")
+texture = ExtResource("5_xox0g")
 
 [node name="PlayerThree" type="Node2D" parent="."]
 
@@ -110,7 +110,7 @@ label_settings = SubResource("LabelSettings_xox0g")
 
 [node name="PlayerThreeButton" type="Sprite2D" parent="PlayerThree"]
 position = Vector2(1130, 832)
-texture = ExtResource("7_2j71b")
+texture = ExtResource("5_cgbcs")
 
 [node name="CheckBoxThree" type="TextureRect" parent="PlayerThree"]
 visible = false
@@ -119,7 +119,7 @@ offset_top = 800.0
 offset_right = 1419.0
 offset_bottom = 920.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_lo6sb")
+texture = ExtResource("4_cgbcs")
 
 [node name="CheckThree" type="TextureRect" parent="PlayerThree"]
 visible = false
@@ -128,7 +128,7 @@ offset_top = 721.0
 offset_right = 1160.0
 offset_bottom = 899.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_bajgy")
+texture = ExtResource("5_xox0g")
 
 [node name="PlayerFour" type="Node2D" parent="."]
 
@@ -146,7 +146,7 @@ label_settings = SubResource("LabelSettings_xox0g")
 
 [node name="PlayerFourButton" type="Sprite2D" parent="PlayerFour"]
 position = Vector2(1646, 832)
-texture = ExtResource("8_cjjld")
+texture = ExtResource("3_rwwts")
 
 [node name="CheckBoxFour" type="TextureRect" parent="PlayerFour"]
 visible = false
@@ -155,7 +155,7 @@ offset_top = 796.0
 offset_right = 1961.0
 offset_bottom = 916.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("4_lo6sb")
+texture = ExtResource("4_cgbcs")
 
 [node name="CheckFour" type="TextureRect" parent="PlayerFour"]
 visible = false
@@ -164,4 +164,4 @@ offset_top = 721.0
 offset_right = 1698.0
 offset_bottom = 899.0
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("5_bajgy")
+texture = ExtResource("5_xox0g")
