@@ -49,46 +49,56 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("kb_space"):
 		player_active(PLAYER.ONE, true)
 	if Input.is_action_just_pressed("kb_escape"):
-		if ready_players[PLAYER.ONE] == true:
+		if player_is_ready(PLAYER.ONE):
 			player_ready(PLAYER.ONE, false)
 		else:
 			player_active(PLAYER.ONE, false)
 	if Input.is_action_just_pressed("kb_enter"):
-		player_ready(PLAYER.ONE, true)
+		if player_is_active(PLAYER.ONE):
+			player_ready(PLAYER.ONE, true)
 		
 	# PLAYER TWO ACTIONS
 	if Input.is_action_just_pressed("controller_one_confirm"):
 		player_active(PLAYER.TWO, true)
 	if Input.is_action_just_pressed("controller_one_return"):
-		if ready_players[PLAYER.TWO] == true:
+		if player_is_ready(PLAYER.TWO):
 			player_ready(PLAYER.TWO, false)
 		else:
 			player_active(PLAYER.TWO, false)
 	if Input.is_action_just_pressed("controller_one_start"):
-		player_ready(PLAYER.TWO, true)
+		if player_is_active(PLAYER.TWO):
+			player_ready(PLAYER.TWO, true)
 
 	# PLAYER THREE ACTIONS
 	if Input.is_action_just_pressed("controller_two_confirm"):
 		player_active(PLAYER.THREE, true)
 	if Input.is_action_just_pressed("controller_two_return"):
-		if ready_players[PLAYER.THREE] == true:
+		if player_is_ready(PLAYER.THREE):
 			player_ready(PLAYER.THREE, false)
 		else:
 			player_active(PLAYER.THREE, false)
 	if Input.is_action_just_pressed("controller_two_start"):
-		player_ready(PLAYER.THREE, true)
+		if player_is_active(PLAYER.THREE):
+			player_ready(PLAYER.THREE, true)
 		
 	# PLAYER FOUR ACTIONS
 	if Input.is_action_just_pressed("controller_three_confirm"):
 		player_active(PLAYER.FOUR, true)
 	if Input.is_action_just_pressed("controller_three_return"):
-		if ready_players[PLAYER.FOUR] == true:
+		if player_is_ready(PLAYER.FOUR):
 			player_ready(PLAYER.FOUR, false)
 		else:
 			player_active(PLAYER.FOUR, false)
 	if Input.is_action_just_pressed("controller_three_start"):
-		player_ready(PLAYER.FOUR, true)
+		if player_is_active(PLAYER.FOUR):
+			player_ready(PLAYER.FOUR, true)
 
+func player_is_active(player_index: int):
+	return players[player_index]
+	
+func player_is_ready(player_index : int):
+	return ready_players[player_index]
+	
 func player_active(player_index: int, active : bool):
 	players[player_index] = active
 	player_buttons[player_index].visible = !active
