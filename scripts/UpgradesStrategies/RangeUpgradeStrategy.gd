@@ -1,7 +1,7 @@
 class_name RangeUpgradeStrategy
 extends BaseUpgradeStrategy
 
-@export var range_increase := 5
+@export var range_increase := .01
 
 func _ready() -> void:
 	isPlayerUpgrade = false;

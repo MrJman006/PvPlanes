@@ -81,6 +81,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_weapon_actions(delta)
+	if(current_health <= 0):
+		die()
+
+func die() -> void:
+	#TODO: Play some sort of death animation
+	queue_free()
 
 # Gets the keycode of a joypad button or key agnostically as an int
 func get_keycode(event: InputEvent) -> int:

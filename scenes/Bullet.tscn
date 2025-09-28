@@ -7,9 +7,9 @@
 radius = 30.9919
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 2
 script = ExtResource("1_p1sfj")
 speed = 1000.0
-max_lifetime = 1.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -20,3 +20,7 @@ texture = ExtResource("2_p1sfj")
 position = Vector2(9, 0)
 scale = Vector2(0.35, 0.35)
 shape = SubResource("CircleShape2D_kdm4f")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
