@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://xo8c7pwbtbu6"]
 
-[ext_resource type="Script" path="res://scripts/player_menu.gd" id="1_sdn3m"]
+[ext_resource type="Script" uid="uid://dcngc8o2gvopb" path="res://scripts/player_menu.gd" id="1_sdn3m"]
 [ext_resource type="Texture2D" uid="uid://bj3ikbgirhn87" path="res://imgs/menu/BlueBackground.png" id="1_xf8rw"]
 [ext_resource type="Texture2D" uid="uid://db3gkm6xdh6nn" path="res://imgs/menu/BlueButton.png" id="2_sdn3m"]
 [ext_resource type="Texture2D" uid="uid://cx0p5ywt00afr" path="res://imgs/menu/GreenButton.png" id="3_rwwts"]
@@ -15,7 +15,7 @@ font_size = 60
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Node" type="Node"]
+[node name="PlayerMenu" type="Node2D"]
 script = ExtResource("1_sdn3m")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -23,7 +23,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("1_xf8rw")
 
-[node name="PlayerOne" type="Node" parent="."]
+[node name="PlayerOne" type="Node2D" parent="."]
 
 [node name="PlayerOneButton" type="Sprite2D" parent="PlayerOne"]
 position = Vector2(162, 834)
@@ -58,7 +58,7 @@ offset_bottom = 915.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_xox0g")
 
-[node name="PlayerTwo" type="Node" parent="."]
+[node name="PlayerTwo" type="Node2D" parent="."]
 
 [node name="PlayerTwoLabel" type="Label" parent="PlayerTwo"]
 anchors_preset = -1
@@ -94,7 +94,7 @@ offset_bottom = 915.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_xox0g")
 
-[node name="PlayerThree" type="Node" parent="."]
+[node name="PlayerThree" type="Node2D" parent="."]
 
 [node name="PlayerThreeLabel" type="Label" parent="PlayerThree"]
 anchors_preset = -1
@@ -130,7 +130,7 @@ offset_bottom = 899.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_xox0g")
 
-[node name="PlayerFour" type="Node" parent="."]
+[node name="PlayerFour" type="Node2D" parent="."]
 
 [node name="PlayerFourLabel" type="Label" parent="PlayerFour"]
 anchors_preset = -1
@@ -165,5 +165,3 @@ offset_right = 1698.0
 offset_bottom = 899.0
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("5_xox0g")
-
-[node name="Node2D" type="Node2D" parent="."]
