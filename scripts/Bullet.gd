@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 	_lifetime += delta * 2
 	
 	if _lifetime >= max_lifetime:
-		print("should_die")
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:
