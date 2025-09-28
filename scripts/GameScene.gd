@@ -4,11 +4,11 @@ var player_scene: PackedScene = preload("res://scenes/Player.tscn")
 var players : Array
 func _ready() -> void:
 	players = Manager.players
-	add_players(players)
+	spawn_players(players)
 
-func add_players(players: Array) -> void:
+func spawn_players(players: Array) -> void:
 	for i in range(players.size()):
-		if players[i] == 1:
+		if players[i] == true:
 			var new_player = player_scene.instantiate()
 			var random_pos = Vector2(randi_range(0,800),randi_range(0,800))
 			new_player.global_position = random_pos

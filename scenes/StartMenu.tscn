@@ -150,7 +150,7 @@ texture_hover = ExtResource("7_xsckg")
 texture_focused = ExtResource("7_xsckg")
 script = ExtResource("8_gfl6h")
 
-[connection signal="mouse_entered" from="StartButton" to="StartButton" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="StartButton" to="." method="_on_start_button_mouse_entered"]
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
-[connection signal="mouse_entered" from="QuitButton" to="QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_entered" from="QuitButton" to="." method="_on_quit_button_mouse_entered"]
 [connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
