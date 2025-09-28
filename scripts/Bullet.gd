@@ -8,15 +8,15 @@ extends Area2D
 class_name Bullet
 
 @export var speed: float = 10.0 # pixels/sec
-@export var max_lifetime: float = 2.0 # seconds
+@export var max_lifetime: float = 1 #seconds
 @export var damage: int = 1
 
 var _velocity: Vector2 = Vector2.ZERO
 var _lifetime: float = 0.0
 var _shooter_id: int = -1
 
-func fire(position: Vector2, target_rotation: float, shooter_id: int = -1, speed_override: float = -1.0):
-	global_position = position
+func fire(new_position: Vector2, target_rotation: float, shooter_id: int = -1, speed_override: float = -1.0):
+	global_position = new_position
 	rotation = target_rotation
 	var direction = Vector2.RIGHT.rotated(rotation)
 	
@@ -35,27 +35,28 @@ func _physics_process(delta: float) -> void:
 	
 	position += _velocity * delta
 	
-	_lifetime += delta
+	_lifetime += delta * 2
+	
 	if _lifetime >= max_lifetime:
 		queue_free()
 
 func _on_body_entered(body: Node) -> void:
 	_apply_hit(body, global_position)
 
-func _apply_hit(body: Node, position: Vector2) -> void:
+func _apply_hit(body: Node, new_position: Vector2) -> void:
 	# Don't hit yourself.
 	if body.get_instance_id() == _shooter_id:
 		return
 	
-	# TODO: Do something to players or others for damage.
-	#		Can use callable methods like "apply_damage(damage)" or can direcly
-	#		modify a "health" value like "body.health = max(0, body.health - damage)"
+	if body is Player:
+		body.apply_damage(damage) 
 	
 	# Play effects
-	_run_hit_effects(position)
+	_run_hit_effects(new_position)
 
-func _run_hit_effects(position: Vector2) -> void:
-	# TODO: Do something here to indicate a hit (i.e. play sound, bullet die anime.
-	#		or call a player animation.
-	#		the player that will do a player animation.
-	pass
+func _run_hit_effects(new_position: Vector2) -> void:
+	queue_free()
+
+
+func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
+	queue_free()

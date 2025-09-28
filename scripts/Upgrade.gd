@@ -12,7 +12,8 @@ extends Area2D
 
 func _ready() -> void:
 	body_entered.connect(on_body_entered)
-	sprite.texture = upgrade_strategy.texture
+	if(upgrade_strategy.texture):
+		sprite.texture = upgrade_strategy.texture
 	upgrade_label.text = upgrade_strategy.upgrade_text
 	
 func _process(delta: float) -> void:

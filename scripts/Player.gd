@@ -35,8 +35,12 @@ var current_shield: int = 0
 # Fire rate modifier
 var fire_rate_modifier: float = 1.0
 
-# Gun cooldown Timer
+# Timers
 @onready var gun_cooldown_timer: Timer = Timer.new()
+@onready var collision_cooldown_timer: Timer = Timer.new()
+
+# Booleans
+var can_collide: bool= true
 
 # Deadzone for joystick movement
 const DEADZONE = 0.2
@@ -58,8 +62,13 @@ const ACTION_TO_BUTTON := {
 
 # Ready function
 func _ready() -> void:
+	# Set cooldown timers
 	gun_cooldown_timer.one_shot = true
+	collision_cooldown_timer.one_shot = true
 	add_child(gun_cooldown_timer)
+	add_child(collision_cooldown_timer)
+	
+	collision_cooldown_timer.timeout.connect(_on_CollisionCooldownTimer_timeout)
 	
 	#Setup Audio Players
 	for i in range(0, 10):
@@ -81,6 +90,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	handle_movement(delta)
 	handle_weapon_actions(delta)
+	if(current_health <= 0):
+		die()
+
+func die() -> void:
+	#TODO: Play some sort of death animation
+	queue_free()
 
 # Gets the keycode of a joypad button or key agnostically as an int
 func get_keycode(event: InputEvent) -> int:
@@ -153,6 +168,7 @@ func apply_damage(damage: int) -> void:
 	damage -= shield_before_damage - current_shield
 
 	current_health = max(current_health - damage, 0)
+	print_debug(device_id, " health: ", current_health)
 
 # Handles inputs that affect movement
 # and finalizes the position of the player 
@@ -165,10 +181,33 @@ func handle_movement(delta: float) -> void:
 	# Calculate new velocity
 	velocity = Vector2.from_angle(rotation) * max_velocity
 	
-	# Apply movement
-	position += velocity * delta
+	# Apply movement and check for player collision
+	var collision: KinematicCollision2D = move_and_collide(velocity * delta)
+	if collision:
+		var collider = collision.get_collider()
+		if collider is Player:
+			on_collision_with_player(collider)
 	
 	handle_screen_wrap()
+
+func on_collision_with_player(collider):
+	if can_collide:
+		self.apply_damage(max_health)
+		collider.apply_damage(collider.max_health)
+		can_collide = false
+		collision_cooldown_timer.start(1.0)
+		
+		print_debug("Collision between ", device_id, " and, ", collider.device_id)
+		
+		# Disable collisions temporarily
+		set_deferred("collision_layer", 0)
+		set_deferred("collision_mask", 0)
+
+func _on_CollisionCooldownTimer_timeout():
+	can_collide = true
+	# Re-enable collisions (use your original layer/mask numbers)
+	set_deferred("collision_layer", 1)
+	set_deferred("collision_mask", 1)
 
 func handle_screen_wrap() -> void:
 	var screen_size = get_viewport().get_visible_rect().size
